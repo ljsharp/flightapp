@@ -1,6 +1,5 @@
-# flightapp
-
-A new Flutter project.
+# Flight Listing App in Flutter. 
+Learning from YouTube - Techie Blossom's video series - https://www.youtube.com/playlist?list=PL342JVRNQxEC0Iz5J5qlKcrLRni5cU1jo
 
 ## Getting Started
 
