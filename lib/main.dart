@@ -136,7 +136,10 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
                   height: 40.0,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 22.0,),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 32.0,
+                    vertical: 22.0,
+                  ),
                   child: Material(
                     elevation: 5.0,
                     borderRadius: BorderRadius.circular(50.0),
@@ -168,18 +171,32 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    ChoiceChip(
-                      icon: Icons.flight_takeoff,
-                      text: "Flight",
-                      isSelected: isSelectedFlight,
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          isSelectedFlight = true;
+                        });
+                      },
+                      child: ChoiceChip(
+                        icon: Icons.flight_takeoff,
+                        text: "Flight",
+                        isSelected: isSelectedFlight,
+                      ),
                     ),
                     SizedBox(
                       width: 20.0,
                     ),
-                    ChoiceChip(
-                      icon: Icons.hotel,
-                      text: "Hotels",
-                      isSelected: isSelectedFlight,
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          isSelectedFlight = false;
+                        });
+                      },
+                      child: ChoiceChip(
+                        icon: Icons.hotel,
+                        text: "Hotels",
+                        isSelected: isSelectedFlight,
+                      ),
                     ),
                   ],
                 )
@@ -212,11 +229,15 @@ class _ChoiceChipState extends State<ChoiceChip> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0,),
-      decoration: widget.isSelected ? BoxDecoration(
-        color: Colors.white.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(20.0)
-      ) : null,
+      padding: EdgeInsets.symmetric(
+        horizontal: 12.0,
+        vertical: 5.0,
+      ),
+      decoration: widget.isSelected
+          ? BoxDecoration(
+              color: Colors.white.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(20.0))
+          : null,
       child: Row(
         children: [
           Icon(
